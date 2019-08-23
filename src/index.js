@@ -4,7 +4,7 @@ import renderClock from './renderClock';
 import getСurrencies from './currencies';
 
 // get info
-let url = 'https://www.cbr-xml-daily.ru/daily_json.js';
+let url = 'https://openexchangerates.org/api/latest.json?app_id=fdf9e0b59dd44ac583a56083ccbb19d2';
 
 // initial call
 renderCanvas(new Date());
@@ -19,4 +19,4 @@ setInterval( () => {
 
 setInterval( () => {
 	getСurrencies(url);
-},12e5);
+},36e5);

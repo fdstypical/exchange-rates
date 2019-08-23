@@ -1,27 +1,19 @@
 let valutesWrap = document.getElementById('valutes'); // DOM node render container
 
-function renderValute(valute) {
+function renderValute(key , valute) {
 	let valuteItem = document.createElement('div'),
 		valuteValue = document.createElement('span'),
-		valuteName = document.createElement('span'),
-		valuteСhanges = document.createElement('div');
+		valuteName = document.createElement('span');
 
 	valuteItem.classList.add('valute-item');
 
-	valuteValue.innerHTML = Math.round(valute.Value / valute.Nominal * 1000) / 1000;
+	valuteValue.innerHTML = Math.round(valute * 100) / 100;
 	valuteValue.classList.add('valute-value');
 
-	valuteName.innerHTML = valute.CharCode;
+	valuteName.innerHTML = key;
 	valuteName.classList.add('valute-name');
 
-	if(valute.Previous < valute.Value){
-		valuteСhanges.classList.add('valute-changes-up');
-	}
-	else { 
-		valuteСhanges.classList.add('valute-changes-down');
-	}
-
-	valuteItem.append(valuteName,valuteValue, valuteСhanges);
+	valuteItem.append(valuteName,valuteValue);
 	
 	valutesWrap.append(valuteItem);
 }
